@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Lista {
+    private List<String> elementos;
+
+    public Lista() {
+        elementos = new ArrayList<>();
+    }
+
+    public void inserir(String valor) {
+        elementos.add(valor);
+    }
+
+    public void remover(String valor) {
+        if (elementos.contains(valor)) {
+            elementos.remove(valor);
+            System.out.println(valor + " foi removido da lista.");
+        } else {
+            System.out.println(valor + " não está na lista.");
+        }
+    }
+
+    public void mostrar() {
+        System.out.println("Lista atual: " + elementos);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Lista lista = new Lista();
+
+        System.out.println("Adicione 5 itens à lista:");
+        for (int i = 1; i <= 5; i++) {
+            System.out.print("Item " + i + ": ");
+            lista.inserir(scanner.nextLine());
+        }
+
+        lista.mostrar();
+
+        System.out.print("Deseja remover algum item? (sim/não): ");
+        String resp = scanner.nextLine();
+
+        while (resp.equalsIgnoreCase("sim")) {
+            System.out.print("Digite o item a remover: ");
+            lista.remover(scanner.nextLine());
+            lista.mostrar();
+            System.out.print("Remover outro item? (sim/não): ");
+            resp = scanner.nextLine();
+        }
+
+        System.out.println("Lista final:");
+        lista.mostrar();
+
+        scanner.close();
+    }
+}
