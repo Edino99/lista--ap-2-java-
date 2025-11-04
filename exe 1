@@ -1,0 +1,21 @@
+public class Lista {
+    private int[] elementos = new int[5];
+    private int tamanho = 0;
+
+    public void inserir(int valor) {
+        if (tamanho < 5) {
+            elementos[tamanho] = valor;
+            tamanho++;
+        } else {
+            System.out.println("A lista está cheia!");
+        }
+    }
+
+    public void mostrar() {
+        System.out.print("Elementos da lista: ");
+        for (int i = 0; i < tamanho; i++) {
+            System.out.print(elementos[i] + " ");
+        }
+        System.out.println();
+    }
+}
